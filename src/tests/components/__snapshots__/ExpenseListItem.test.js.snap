@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`show render ExpenseListItem with fixture data 1`] = `
+<Link
+  className="list-item"
+  replace={false}
+  to="/edit/2"
+>
+  <div>
+    <h3
+      className="list-item__title"
+    >
+      Doctor bills
+    </h3>
+    <span
+      className="list-item__sub-title"
+    >
+      26th of December, 1969
+    </span>
+  </div>
+  <h3
+    className="list-item__data"
+  >
+    R700,00
+  </h3>
+</Link>
+`;

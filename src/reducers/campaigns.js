@@ -1,10 +1,15 @@
-// Campaign Reducer
+// Campaigns Reducer
 
-const campaignReducerDefaultState = [];
+const campaignsReducerDefaultState = [];
 
-export default (state = campaignReducerDefaultState, action) => {
+export default (state = campaignsReducerDefaultState, action) => {
     switch (action.type) {
         case 'ADD_CAMPAIGN':
+            return [
+                ...state,
+                action.campaign
+            ]
+        case 'CANCEL_CAMPAIGN':
             return [
                 ...state,
                 action.campaign

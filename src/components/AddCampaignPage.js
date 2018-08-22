@@ -1,13 +1,12 @@
 import React from 'react';
-import AckermansPage from './AckermanPage';
+import CampaignForm from './CampaignForm';
 import { connect } from 'react-redux';
-import { startAddCampaign } from '../actions/campaign';
+import { startAddCampaign } from '../actions/campaigns';
 
-export class AddExpensePage extends React.Component {
+export class AddCampaignPage extends React.Component {
     onSubmit = (campaign) => {
         this.props.startAddCampaign(campaign);
-        this.props.history.push('/dashboard/ackermans');
-        const test = () => {startAddCampaign}
+        this.props.history.push('/dashboard');
     };
     render() {
         return (
@@ -18,7 +17,7 @@ export class AddExpensePage extends React.Component {
                     </div>
                 </div>
                 <div className="content-container">
-                    <AckermansPage 
+                    <CampaignForm 
                         onSubmit={this.onSubmit}
                     />
                 </div>
@@ -28,7 +27,7 @@ export class AddExpensePage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    startAddExpense: (expense) => dispatch(startAddExpense(expense))
+    startAddCampaign: (campaign) => dispatch(startAddCampaign(campaign))
 });
 
-export default connect(undefined, mapDispatchToProps)(AddExpensePage);
+export default connect(undefined, mapDispatchToProps)(AddCampaignPage);

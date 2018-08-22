@@ -10,10 +10,10 @@ exports[`Should render the LoginPage component 1`] = `
     <h1
       className="box-layout__title"
     >
-      Boilerplate
+      Expensify
     </h1>
     <p>
-      Subtitle for app.
+      It's time to get your expenses under control.
     </p>
     <button
       className="button"

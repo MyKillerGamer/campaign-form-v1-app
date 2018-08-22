@@ -4,7 +4,7 @@ import { SingleDatePicker } from 'react-dates';
 
 // const date = new Date();
 const now = moment();
-export default class campaignForm extends React.Component {
+export default class ExpenseForm extends React.Component {
     constructor(props) {
         super(props);
 
@@ -40,11 +40,6 @@ export default class campaignForm extends React.Component {
             error: ''
         };
     }
-    
-    onChange = (e) => {
-        const x = e.target.value;
-        this.setState(() => ({ x }));
-    };
     
     onCampaignNumberChange = (e) => {
         const campaignNumber = e.target.value;
@@ -157,12 +152,6 @@ export default class campaignForm extends React.Component {
             this.setState(() => ({ error: 'Please provide all fields not labelled optional' }));
         } else {
             this.setState(() => ({ error: '' }));
-            // this.props.onSubmit({
-            //     description: this.state.description,
-            //     amount: parseFloat(this.state.amount, 10) * 100,
-            //     createdAt: this.state.createdAt.valueOf(),
-            //     note: this.state.note
-            // });
             this.props.onSubmit({
                 submitDate: this.state.submitDate.valueOf() ,
                 campaignNumber: this.state.campaignNumber ,
@@ -187,7 +176,7 @@ export default class campaignForm extends React.Component {
                 dataSelectionExclusions: this.state.dataSelectionExclusions ,
                 campaignNumberExclusions: this.state.campaignNumberExclusions ,
                 comments: this.state.comments ,    // Non-compulsory
-                postCampaignAnalysis: this.state.postCampaignAnalysis , 
+                postCampaignAnalysis: this.state.postCampaignAnalysis
             });
         }
     };
@@ -404,122 +393,3 @@ export default class campaignForm extends React.Component {
         )
     }
 }
-
-// export default () => {
-//     <Form>
-//             <div>
-//                 <Field type="date" name="submitdate" placeholder="Date" />
-//             </div>
-//             <div>
-//                 <Field type="string" name="campno" placeholder="Campaign Number" />
-//             </div>
-//             <div>
-//                 <Field type="string" name="campname" placeholder="Campaign Name" />
-//             </div>
-//             <div>
-//                 Contact Person
-//                 <Field type="string" name="contactid" placeholder="Contact Person" />
-//             </div>
-//             <div>
-//                 Adobe OP Number
-//                 <Field type="string" name="opno" placeholder="Adobe OP Number" />
-//             </div>
-//             <div>
-//                 Campaign Objective
-//                 <Field type="string" name="campob" placeholder="Campaign Objective" />
-//             </div>
-//             <div>
-//                 Campaign Sent Date
-//                 <Field type="date" name="campdate" placeholder="Campaign Sent Date" />
-//             </div>
-//             <div>
-//                 Campaign Channel
-//                 <Field type="string" name="campchan" placeholder="Campaign Channel" />
-//             </div>
-//             <div>
-//                 Campaign Max Target Size
-//                 <Field type="string" name="targetsize" placeholder="Campaign Max Target Size" />
-//             </div>
-//             <div>
-//                 Holdout Sample Size
-//                 <Field type="string" name="holdoutsize" placeholder="Holdout Sample Size" />
-//             </div>
-//             <div>
-//                 Program Selection
-//                 <Field component="select" name="program" >
-//                     <option value="cfh">CFH Program</option>
-//                     <option value="money">Money Program</option>
-//                     <option value="club">Club Program</option>
-//                 </Field>
-//             </div>
-//             <div>
-//                 Nature
-//                 <Field component="select" name="nature" >
-//                     <option value="cfh">Sell CFH</option>
-//                     <option value="awareness">Drive Awareness</option>
-//                 </Field>
-//             </div>
-//             <div>
-//                 Marketing Type
-//                 <Field component="select" name="marketingtype" >
-//                     <option value="free">Free</option>
-//                     <option value="premium">Premium</option>
-//                 </Field>
-//             </div>
-//             <div>
-//                 Consent Type
-//                 <Field component="select" name="consenttype" >
-//                     <option value="free">Free</option>
-//                     <option value="premium">Premium</option>
-//                 </Field>
-//             </div>
-//             <div>
-//                 Product Consent
-//                 <Field type="string" name="productconsent" placeholder="Product Consent" />
-//             </div>
-//             <div>
-//                 Business Division
-//                 <Field component="select" name="bussdiv" >
-//                     <option value="free">Free</option>
-//                     <option value="premium">Premium</option>
-//                 </Field>
-//             </div>    
-//             <div>
-//                 Data To Be Passed To:
-//                 <Field component="select" name="passto" >
-//                     <option value="thirdparty">Third Party</option>
-//                     <option value="adobe">Adobe</option>
-//                 </Field>
-//             </div>
-//             <div>
-//                 Requisite Fields
-//                 <Field type="text" name="requisitefields" placeholder="Required Fields" />
-//             </div>
-//             <div>
-//                 Personalisztion
-//                 <Field type="string" name="personalisation" placeholder="Personalisation" />
-//             </div>
-//             <div>
-//                 Data Selection
-//                 <Field type="string" name="dataselect" placeholder="Data Selection" />
-//             </div>
-//             <div>
-//                 Data Exclusions
-//                 <Field type="string" name="dataexclusions" placeholder="Data Exclusions" />
-//             </div>
-//             <div>
-//                 Campaign Exclusions
-//                 <Field type="string" name="campaignexclusions" placeholder="Campaign Exclusions" />
-//             </div>
-//             <div>
-//                 Comments
-//                 <Field type="string" name="comments" placeholder="Comments" />
-//             </div>
-//             <div>
-//                 Post Campaign Analysis
-//                 <Field type="string" name="postcampainanalysis" placeholder="Post Campaign Analysis" />
-//             </div>
-//                 <button type="submit" disabled={isSubmitting} onSubmit={this.onSubmit} >Submit</button>
-//                 <button disabled={isSubmitting} onSubmit={this.onRemove} >Delete</button>    
-//             </Form>
-// }
